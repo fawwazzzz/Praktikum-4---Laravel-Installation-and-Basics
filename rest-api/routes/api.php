@@ -21,17 +21,20 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-# method GET
-Route::get("/animals",[AnimalController::class, 'index']);
+# Get All Resource
+Route::get("/students", [StudentController::class, 'index']);
 
-# method POST
-Route::post("/animals",[AnimalController::class, 'store']);
+# Add Resource
+Route::post("/students", [StudentController::class, 'store']);
 
-# method PUT
-Route::put("/animals/{id}", [AnimalController::class, 'update']);
+# Get Detail resource
+Route::get("/students/{id}", [StudentController::class, 'show']);
 
-# method DELETE
-Route::delete("/animals/{id}",[AnimalController::class, 'destroy']);
+# Update data
+Route::put("/students/{id}", [StudentController::class, 'update']);
+
+# Delete Data
+Route::delete("/students/{id}", [StudentController::class, 'destroy']);
 
 # Route Student
 # Method POST, route /students
