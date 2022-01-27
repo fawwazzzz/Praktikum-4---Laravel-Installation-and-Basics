@@ -15,10 +15,8 @@ use App\Http\Controllers\StatusController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+# Autentikasi
+Route::middleware(['auth:sanctum'])->group(function() {
 # Get All Patient
 Route::get("/patients", [PatientController::class, 'index']);
 # Get Detail Patient
@@ -46,6 +44,7 @@ Route::get("/status", [StatusController::class, 'status']);
 # Endpoint Register n Login
 Route::post ('/register', [AuthController::class, 'register']);
 Route::post ('/login', [AuthController::class, 'login']);
+});
 
 
 
